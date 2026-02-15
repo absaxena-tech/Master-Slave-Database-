@@ -1,30 +1,28 @@
-version: '3.8'
-
 services:
   mysql-master:
     image: mysql:8.0
     container_name: mysql-master
     restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: companydb
     ports:
       - "3307:3306"
     volumes:
-      - ./master.cnf:/etc/mysql/my.cnf
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./master.cnf:/etc/mysql/conf.d/master.cnf
+      - ./master-init.sql:/docker-entrypoint-initdb.d/master-init.sql
 
   mysql-slave:
     image: mysql:8.0
     container_name: mysql-slave
     restart: always
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: companydb
     ports:
       - "3308:3306"
     depends_on:
       - mysql-master
     volumes:
-      - ./slave.cnf:/etc/mysql/my.cnf
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./slave.cnf:/etc/mysql/conf.d/slave.cnf
+      - ./slave-init.sql:/docker-entrypoint-initdb.d/slave-init.sql

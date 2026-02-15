@@ -6,8 +6,7 @@ public class Main {
         EmployeeDao dao = new EmployeeDao();
 
         // Write to MASTER
-        dao.insertEmployee("Abhijeet", 50000);
-        dao.insertEmployee("Rahul", 60000);
+        dao.insertEmployee("Abhijeet", 500000);
         dao.insertEmployee("Kamal",100000);
         dao.insertEmployee("Prakriti", 200000);
         dao.insertEmployee("Sanjay",3000000);
