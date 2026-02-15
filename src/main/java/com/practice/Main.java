@@ -1,20 +1,26 @@
 package com.practice;
 
 public class Main {
+
     public static void main(String[] args) throws Exception {
 
         EmployeeDao dao = new EmployeeDao();
 
-        // Write to MASTER
-        dao.insertEmployee("Abhijeet", 500000);
-        dao.insertEmployee("Kamal",100000);
-        dao.insertEmployee("Prakriti", 200000);
-        dao.insertEmployee("Sanjay",3000000);
+        // Insert into MASTER
+//        dao.insertEmployee("Abhijeet", 500000);
+//        dao.insertEmployee("Kamal", 100000);
+//        dao.insertEmployee("Prakriti", 200000);
 
-        // wait for replication
-        Thread.sleep(2000);
+        for (int i = 0; i < 10000; i++) {
+            new Thread(() -> {
+                dao.fetchEmployees();
+            }).start();
+//        }
 
-        // Read from SLAVE
-        dao.fetchEmployees();
+
+        Thread.sleep(2000); // wait for replication
+
+//        // Read (from SLAVE normally)
+//        dao.fetchEmployees();
     }
 }

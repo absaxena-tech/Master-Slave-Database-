@@ -1,6 +1,23 @@
 [mysqld]
+
+# Unique ID for this MySQL server.
+# Every server in replication (master/slave) MUST have a different server-id.
 server-id=1
+
+
+# Enables binary logging.
+# Master records all data-changing events in binlog files.
+# Slave reads these logs to replicate data.
 log-bin=mysql-bin
+
+
+# Defines how changes are written into the binary log.
+# ROW = stores actual row changes (safer and production recommended).
 binlog_format=ROW
+
+
+# Enables GTID (Global Transaction ID).
+# Each transaction gets a unique ID like: server-id:transaction-number.
+# Makes replication automatic and easier to manage.
 gtid_mode=ON
-enforce_gtid_consistency=ON
+
