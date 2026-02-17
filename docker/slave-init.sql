@@ -12,7 +12,6 @@ CHANGE REPLICATION SOURCE TO
   -- Password for replication user.
   SOURCE_PASSWORD='replpass',
 
-  -- Use GTID-based automatic positioning.
   -- Slave automatically figures out which transactions to pull.
   -- No need to manually specify binlog file or position.
   SOURCE_AUTO_POSITION=1;

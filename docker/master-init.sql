@@ -11,15 +11,8 @@ USE companydb;
 -- IF NOT EXISTS prevents duplicate creation error
 CREATE TABLE IF NOT EXISTS employee (
 
-    -- Unique ID for each employee
-    -- AUTO_INCREMENT automatically increases value (1,2,3...)
-    -- PRIMARY KEY ensures each row is unique
-                                        id INT PRIMARY KEY AUTO_INCREMENT,
-
-    -- Employee name (up to 100 characters)
-                                        name VARCHAR(100),
-
-    -- Employee salary stored as a decimal number
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
     salary DOUBLE
     );
 

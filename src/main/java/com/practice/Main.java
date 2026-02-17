@@ -5,8 +5,11 @@ public class Main {
     public static void main(String[] args) throws Exception {
 
         EmployeeDao dao = new EmployeeDao();
-
-
+//
+//        dao.insertEmployee("Utkarsha",5000000);
+//        dao.insertEmployee("Manoj",2000000);
+//
+//         dao.fetchEmployees();
         /*
         ============================================================
         NORMAL WORKING FLOW (WHEN EVERYTHING IS HEALTHY)
